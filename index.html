@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYS-eWallet - Send Money from Malaysia to Bangladesh Instantly</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Send money from Malaysia to Bangladesh instantly with PYS-eWallet. Fast, secure, and affordable transfers with the best exchange rates.">
+    <meta property="og:title" content="PYS-eWallet - Instant Money Transfer">
+    <meta property="og:description" content="Send money from Malaysia to Bangladesh in seconds">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pysewallet/download/main/images/logo/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/pysewallet/download/main/images/logo/logo.png">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #0066FF;
+            --secondary-color: #00C853;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fd;
+            --text-color: #4a5568;
+            --text-dark: #2d3748;
+            --gradient-primary: linear-gradient(135deg, #0066FF 0%, #00C853 100%);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(15px, 5vw, 30px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: clamp(30px, 5vw, 40px);
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .download-nav-btn {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .download-nav-btn::after {
+            display: none;
+        }
+
+        .download-nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: clamp(80px, 15vh, 120px) clamp(15px, 5vw, 30px) clamp(40px, 8vh, 60px);
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: min(800px, 80vw);
+            height: min(800px, 80vw);
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, transparent 70%);
+            top: -400px;
+            right: -200px;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: min(600px, 60vw);
+            height: min(600px, 60vw);
+            background: radial-gradient(circle, rgba(0, 200, 83, 0.06) 0%, transparent 70%);
+            bottom: -300px;
+            left: -200px;
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease-out;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(0, 200, 83, 0.15) 0%, rgba(0, 200, 83, 0.05) 100%);
+            color: var(--secondary-color);
+            padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 200, 83, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 900;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            color: var(--text-color);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: clamp(15px, 3vw, 25px);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        .hero-feature-item i {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: clamp(14px, 3vw, 16px) clamp(25px, 5vw, 35px);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--primary-color);
+            padding: clamp(14px, 3vw, 16px) clamp(20px, 4vw, 30px);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .download-info {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-color);
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            justify-content: center;
+        }
+
+        .download-info i {
+            color: var(--secondary-color);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mockup-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .phone-mockup {
+            position: relative;
+            width: 100%;
+            max-width: clamp(240px, 50vw, 400px);
+            filter: drop-shadow(0 30px 80px rgba(0, 102, 255, 0.25));
+            animation: floatPhone 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card-1 {
+            top: 10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            bottom: 15%;
+            right: -8%;
+            animation-delay: 1s;
+        }
+
+        .floating-card i {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+            color: var(--primary-color);
+        }
+
+        .floating-card h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 2px;
+        }
+
+        .floating-card p {
+            font-size: 0.7rem;
+            color: var(--text-color);
+        }
+
+        /* Trust Badges */
+        .trust-section {
+            background: white;
+            padding: clamp(30px, 5vh, 40px) clamp(15px, 5vw, 30px);
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: clamp(20px, 3vw, 30px);
+            text-align: center;
+        }
+
+        .trust-item h3 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .trust-item p {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: clamp(50px, 10vh, 80px) clamp(15px, 5vw, 30px);
+            background: white;
+        }
+
+        .screenshots-scroll {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            display: flex;
+            gap: clamp(15px, 3vw, 25px);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .screenshot-item {
+            flex: 0 0 clamp(180px, 40vw, 280px);
+            scroll-snap-align: start;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .screenshot-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .screenshot-item:hover .screenshot-overlay {
+            opacity: 1;
+        }
+
+        .screenshot-overlay p {
+            color: white;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            margin: 0;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: clamp(50px, 10vh, 80px) clamp(15px, 5vw, 30px);
+            background: var(--light-color);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: clamp(0.7rem, 1.5vw, 0.75rem);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .steps-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(20px, 3vw, 30px);
+        }
+
+        .step-card {
+            background: white;
+            padding: clamp(25px, 4vw, 35px) clamp(20px, 3vw, 25px);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0, 102, 255, 0.3);
+        }
+
+        .step-icon {
+            width: clamp(60px, 12vw, 75px);
+            height: clamp(60px, 12vw, 75px);
+            margin: 15px auto 20px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 200, 83, 0.1) 100%);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.6rem, 3vw, 2rem);
+        }
+
+        .step-card:nth-child(1) .step-icon {
+            color: #0066FF;
+        }
+
+        .step-card:nth-child(2) .step-icon {
+            color: #00C853;
+        }
+
+        .step-card:nth-child(3) .step-icon {
+            color: #FF6B00;
+        }
+
+        .step-card:nth-child(4) .step-icon {
+            color: #9C27B0;
+        }
+
+        .step-card h3 {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        }
+
+        /* Features Section */
+        .features {
+            padding: clamp(50px, 10vh, 80px) clamp(15px, 5vw, 30px);
+            background: white;
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 25px);
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fd 0%, #ffffff 100%);
+            padding: clamp(25px, 4vw, 30px);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .feature-icon-wrapper {
+            width: clamp(55px, 10vw, 65px);
+            height: clamp(55px, 10vw, 65px);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+        }
+
+        .feature-card:nth-child(1) .feature-icon-wrapper {
+            background: linear-gradient(135deg, #0066FF 0%, #00C853 100%);
+            color: white;
+        }
+
+        .feature-card:nth-child(2) .feature-icon-wrapper {
+            background: linear-gradient(135deg, #FF6B00 0%, #FFD600 100%);
+            color: white;
+        }
+
+        .feature-card:nth-child(3) .feature-icon-wrapper {
+            background: linear-gradient(135deg, #9C27B0 0%, #E91E63 100%);
+            color: white;
+        }
+
+        .feature-card:nth-child(4) .feature-icon-wrapper {
+            background: linear-gradient(135deg, #00C853 0%, #00E676 100%);
+            color: white;
+        }
+
+        .feature-card:nth-child(5) .feature-icon-wrapper {
+            background: linear-gradient(135deg, #2196F3 0%, #00BCD4 100%);
+            color: white;
+        }
+
+        .feature-card:nth-child(6) .feature-icon-wrapper {
+            background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%);
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: clamp(50px, 10vh, 80px) clamp(15px, 5vw, 30px);
+            background: var(--light-color);
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 3vw, 25px);
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: clamp(25px, 4vw, 30px);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: rgba(0, 102, 255, 0.1);
+        }
+
+        .testimonial-rating {
+            color: #FFD700;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+            line-height: 1.7;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 3px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .author-location {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: clamp(0.7rem, 1.5vw, 0.75rem);
+            color: var(--primary-color);
+        }
+
+        /* Security Section */
+        .security-section {
+            padding: clamp(50px, 10vh, 80px) clamp(15px, 5vw, 30px);
+            background: white;
+        }
+
+        .security-container {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .security-image {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .security-image img {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .security-features {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(20px, 3vw, 25px);
+        }
+
+        .security-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .security-item-icon {
+            width: clamp(45px, 8vw, 55px);
+            height: clamp(45px, 8vw, 55px);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 200, 83, 0.1) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .security-item-content h3 {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 8px;
+        }
+
+        .security-item-content p {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        }
+
+        /* Download CTA Section */
+        .download-cta-section {
+            padding: clamp(50px, 10vh, 80px) clamp(15px, 5vw, 30px);
+            background: var(--gradient-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-cta-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -250px;
+            left: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .download-cta-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            bottom: -200px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .download-cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-cta-content h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .download-cta-content p {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--primary-color);
+            padding: clamp(15px, 3vw, 18px) clamp(25px, 5vw, 35px);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-download i {
+            font-size: clamp(1.4rem, 3vw, 1.6rem);
+        }
+
+        .download-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 25px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: rgba(255, 255, 255, 0.8);
+            padding: clamp(40px, 8vh, 60px) clamp(15px, 5vw, 30px) clamp(20px, 4vh, 30px);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto 20px;
+        }
+
+        .footer-about h3 {
+            color: white;
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-about h3 i {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-about p {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: clamp(20px, 3vh, 30px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes floatPhone {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(2deg);
+            }
+        }
+
+        /* Desktop specific */
+        @media (min-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 60px;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .hero-features,
+            .cta-buttons,
+            .download-info {
+                justify-content: flex-start;
+            }
+
+            .security-container {
+                grid-template-columns: 0.8fr 1.2fr;
+                gap: 60px;
+            }
+
+            .floating-card {
+                display: block;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 1023px) {
+            .nav-links {
+                display: none;
+            }
+
+            .floating-card {
+                display: none;
+            }
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 640px) {
+
+            .btn-primary,
+            .btn-secondary,
+            .btn-download {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/logo/logo.png"
+                    alt="PYS-eWallet Logo" class="logo-img">
+                <span class="logo-text">PYS-eWallet</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#download" class="download-nav-btn">Download Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-check-circle"></i>
+                    Available Now!
+                </div>
+                <h1>Send Money from <span class="highlight">Malaysia</span> to <span class="highlight">Bangladesh</span>
+                    in Seconds</h1>
+                <p>Fast, secure, and affordable money transfers. No hidden fees, no hassle. Just simple transfers that
+                    work.</p>
+
+                <div class="hero-features">
+                    <div class="hero-feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Instant Transfer</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Best Exchange Rates</span>
+                    </div>
+                    <div class="hero-feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>100% Secure</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="https://github.com/pysewallet/download/raw/main/apk/pys-ewallet.apk" class="btn-primary">
+                        <i class="fab fa-android"></i>
+                        Download Now
+                    </a>
+                    <a href="#how-it-works" class="btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        See How It Works
+                    </a>
+                </div>
+
+                <div class="download-info">
+                    <i class="fas fa-download"></i>
+                    <span>Free Download • Android 6.0+ • 15MB</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="phone-mockup-container">
+                    <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/hero/app-mockup.png"
+                        alt="PYS-eWallet App" class="phone-mockup">
+
+                    <div class="floating-card card-1">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Instant</h4>
+                        <p>Transfer in seconds</p>
+                    </div>
+
+                    <div class="floating-card card-2">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Secure</h4>
+                        <p>Bank-level security</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <div class="trust-item">
+                <h3>10K+</h3>
+                <p>Active Users</p>
+            </div>
+            <div class="trust-item">
+                <h3>4.8★</h3>
+                <p>User Rating</p>
+            </div>
+            <div class="trust-item">
+                <h3>&lt;2min</h3>
+                <p>Average Transfer Time</p>
+            </div>
+            <div class="trust-item">
+                <h3>24/7</h3>
+                <p>Support Available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="section-header">
+            <span class="section-badge">Screenshots</span>
+            <h2>See PYS-eWallet in Action</h2>
+            <p>Beautiful, simple, and intuitive interface designed for everyone.</p>
+        </div>
+        <div class="screenshots-scroll">
+            <div class="screenshot-item">
+                <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/screenshots/screenshot-1.png"
+                    alt="Home Screen" loading="lazy">
+                <div class="screenshot-overlay">
+                    <p>Home Screen</p>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/screenshots/screenshot-2.png"
+                    alt="Send Money" loading="lazy">
+                <div class="screenshot-overlay">
+                    <p>Send Money</p>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/screenshots/screenshot-3.png"
+                    alt="Transaction History" loading="lazy">
+                <div class="screenshot-overlay">
+                    <p>Transaction History</p>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/screenshots/screenshot-4.png"
+                    alt="Recipient Management" loading="lazy">
+                <div class="screenshot-overlay">
+                    <p>Recipient Management</p>
+                </div>
+            </div>
+            <div class="screenshot-item">
+                <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/screenshots/screenshot-5.png"
+                    alt="Profile & Settings" loading="lazy">
+                <div class="screenshot-overlay">
+                    <p>Profile & Settings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <span class="section-badge">How It Works</span>
+            <h2>Send Money in 4 Simple Steps</h2>
+            <p>We've made international money transfer as simple as sending a text message.</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3>Create Account</h3>
+                <p>Sign up in less than 2 minutes with just your phone number and email.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Enter Amount</h3>
+                <p>Choose how much you want to send and see the exact amount your recipient will get.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>Add Recipient</h3>
+                <p>Add recipient's bank details or mobile wallet. Save for future transfers.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-icon">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+                <h3>Send Money</h3>
+                <p>Confirm and send! Your recipient gets the money in seconds, not days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-badge">Features</span>
+            <h2>Why Choose PYS-eWallet?</h2>
+            <p>We're not just another money transfer app. We're your trusted financial companion.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Lightning Fast Transfers</h3>
+                <p>Money arrives in your recipient's account in under 2 minutes. No more waiting days for transfers to
+                    complete.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Best Exchange Rates</h3>
+                <p>Get competitive exchange rates that beat traditional banks. More money for your loved ones.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Bank-Level Security</h3>
+                <p>Your money and data are protected with 256-bit encryption and multi-factor authentication.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <h3>Transparent Pricing</h3>
+                <p>No hidden fees, no surprises. What you see is what you pay. Always clear and upfront.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Easy to Use</h3>
+                <p>Beautiful, intuitive interface designed for everyone. If you can text, you can transfer money.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Our dedicated support team is always available in Bengali, English, and Malay.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section" id="security">
+        <div class="section-header">
+            <span class="section-badge">Security First</span>
+            <h2>Your Money, Always Protected</h2>
+            <p>We use cutting-edge technology to keep your money and data safe.</p>
+        </div>
+        <div class="security-container">
+            <div class="security-image">
+                <img src="https://raw.githubusercontent.com/pysewallet/download/main/images/features/security-visual.png"
+                    alt="Security Features" loading="lazy">
+            </div>
+            <div class="security-features">
+                <div class="security-item">
+                    <div class="security-item-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="security-item-content">
+                        <h3>256-Bit Encryption</h3>
+                        <p>Military-grade encryption protects every transaction. The same technology used by major banks
+                            worldwide.</p>
+                    </div>
+                </div>
+
+                <div class="security-item">
+                    <div class="security-item-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="security-item-content">
+                        <h3>Two-Factor Authentication</h3>
+                        <p>Extra layer of security with SMS or app-based verification for every transaction.</p>
+                    </div>
+                </div>
+
+                <div class="security-item">
+                    <div class="security-item-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="security-item-content">
+                        <h3>KYC Verified Users</h3>
+                        <p>All users go through strict identity verification to ensure safe and legitimate transactions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="security-item">
+                    <div class="security-item-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="security-item-content">
+                        <h3>Fully Licensed & Regulated</h3>
+                        <p>Authorized and regulated by financial authorities in Malaysia and Bangladesh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <span class="section-badge">Testimonials</span>
+            <h2>What Our Users Say</h2>
+            <p>Join thousands of satisfied customers who trust PYS-eWallet for their money transfers.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Finally! A reliable way to send money home. The app is so easy to use and
+                    transfers are instant. My family receives the money in minutes, not days!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AH</div>
+                    <div class="author-info">
+                        <h4>Ahmed Hassan</h4>
+                        <p class="author-location"><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Best exchange rates I've found! I've tried other services but PYS-eWallet
+                    gives the most money to my family. Plus, no hidden fees!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RI</div>
+                    <div class="author-info">
+                        <h4>Rina Islam</h4>
+                        <p class="author-location"><i class="fas fa-map-marker-alt"></i> Johor Bahru, Malaysia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Super safe and secure. I was worried about online transfers but PYS-eWallet
+                    has the best security. Customer support is also very helpful!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MK</div>
+                    <div class="author-info">
+                        <h4>Mohammad Karim</h4>
+                        <p class="author-location"><i class="fas fa-map-marker-alt"></i> Shah Alam, Malaysia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA Section -->
+    <section class="download-cta-section" id="download">
+        <div class="download-cta-content">
+            <h2>Ready to Start Sending Money?</h2>
+            <p>Download PYS-eWallet now and send money to Bangladesh in seconds. Fast, secure, and reliable.</p>
+
+            <div class="download-buttons">
+                <a href="https://github.com/pysewallet/download/raw/main/apk/pys-ewallet.apk" class="btn-download">
+                    <i class="fab fa-android"></i>
+                    <div style="text-align: left;">
+                        <div style="font-size: 0.7rem; font-weight: 500; opacity: 0.8;">Download for</div>
+                        <div>Android</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="download-badge">
+                <i class="fas fa-shield-check"></i> 100% Safe & Secure Download
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3><i class="fas fa-wallet"></i> PYS-eWallet</h3>
+                <p>Making money transfers between Malaysia and Bangladesh simple, fast, and affordable. Your trusted
+                    financial companion.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 PYS-eWallet. All rights reserved. | Made with ❤️ for Malaysia & Bangladesh</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect - optimized
+        let ticking = false;
+        const navbar = document.querySelector('nav');
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const currentScroll = window.pageYOffset;
+
+                    if (currentScroll > 100) {
+                        navbar.style.padding = '12px 0';
+                        navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.1)';
+                    } else {
+                        navbar.style.padding = '15px 0';
+                        navbar.style.boxShadow = '0 2px 30px rgba(0,0,0,0.08)';
+                    }
+
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Lazy loading optimization
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+
+</html>
